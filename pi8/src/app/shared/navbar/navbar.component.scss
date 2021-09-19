@@ -1,0 +1,50 @@
+@import "../../../assets/colors";
+
+.navbar {
+  background-color: $color-blue-black;
+  height: 100px;
+}
+
+::ng-deep .p-menubar.menubar {
+  background-color: transparent !important;
+  border: none;
+  color: #fff;
+
+  .p-menubar-button {
+    &:hover {
+      background-color: transparent;
+      border: 1px solid transparent;
+    }
+  }
+
+  .p-menuitem-link {
+    background-color: transparent !important;
+    border: 2px $color-light-blue !important;
+
+    &:focus {
+      box-shadow: none !important;
+      border: 2px $color-light-blue !important;
+      background-color: transparent !important;
+    }
+  }
+
+  .p-menubar-root-list {
+    flex-direction: inherit;
+    flex-wrap: wrap;
+    background-color: transparent !important;
+  }
+
+  .p-menuitem {
+    background-color: transparent !important;
+    border: 2px solid $color-light-blue !important;
+    border-radius: 20px;
+    box-shadow: 1px 1px 12px 1px #20dad8 !important;
+    margin-left: 12px;
+    margin-right: 12px;
+
+    .p-menuitem-text {
+      color: #fff !important;
+      font-weight: 600;
+    }
+  }
+}

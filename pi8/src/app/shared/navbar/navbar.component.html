@@ -1,0 +1,8 @@
+<section class="grid">
+  <div class="col-12 navbar">
+    <div class="col-4 col-offset-8">
+      <p-menubar styleClass="menubar" [model]="items"></p-menubar>
+    </div>
+  </div>
+  <app-sidemenu (displayChange)="displayChange($event)" [display]="display"></app-sidemenu>
+</section>
