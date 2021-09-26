@@ -1,0 +1,14 @@
+@import "../../../../assets/colors";
+
+::ng-deep .p-datatable.table {
+
+    margin: 40px !important;
+
+    .p-datatable-thead > tr > th {
+        border: 5px solid $color-dark-blue !important;
+        background-color: $color-dark-blue;
+        color: $color-white;
+    }
+  
+}
+  

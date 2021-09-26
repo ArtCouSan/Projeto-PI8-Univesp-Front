@@ -1,0 +1,10 @@
+@import 'colors';
+
+::ng-deep .p-button-secondary.button-submit {
+  color: $color-white;
+  background-color: $color-light-blue !important;
+  border-color: $color-light-blue !important;
+  background: linear-gradient(135deg, $color-light-blue 0%, $color-light-blue 100%);
+  box-shadow: 0 6px 6px 0 $color-light-blue;
+}
+

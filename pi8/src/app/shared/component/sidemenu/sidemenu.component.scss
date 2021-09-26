@@ -1,4 +1,4 @@
-@import "../../../assets/colors";
+@import "../../../../assets/colors";
 
 ::ng-deep .p-sidebar.sidebar {
 
@@ -9,7 +9,16 @@
     .p-sidebar-icon {
         color: $color-black;
     }
-    
   }
+
+  .p-sidebar-content {
+    padding: 0px;
+  }
+
+}
+
+::ng-deep .p-listbox.listbox {
+
+  border: none !important;
 
 }

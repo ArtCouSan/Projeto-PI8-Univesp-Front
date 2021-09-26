@@ -1,5 +1,5 @@
 <section>
     <p-sidebar styleClass="p-sidebar-sm sidebar" (visibleChange)="changeVisible($event)" [visible]="display.value">
-        Content
+        <p-listbox (onClick)="selecionadoImte($event)" styleClass="listbox" [options]="opcoes" optionLabel="name"></p-listbox>
     </p-sidebar>
 </section>
