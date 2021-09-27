@@ -1,0 +1,164 @@
+<form [formGroup]="receitaForm" class="grid">
+  <div class="col-12 md:col-12 lg:col-12 xl:col-12 row">
+    <div
+      class="
+        col-9
+        ml-6
+        mr-6
+        md:col-5 md:ml-6 md:mr-1
+        lg:col-4 lg:ml-6
+        xl:col-4 xl:ml-6
+      "
+    >
+      <app-input
+        [id]="'cpfPaciente'"
+        [name]="'cpfPaciente'"
+        [type]="'text'"
+        [placeholder]="'CPF do Paciente'"
+        [parentForm]="receitaForm"
+      ></app-input>
+    </div>
+    <div
+      class="
+        col-9
+        ml-6
+        mr-6
+        md:col-5 md:ml-1 md:mr-6
+        lg:col-4 lg:mr-6
+        xl:col-4 xl:mr-6
+      "
+    >
+      <app-input
+        [id]="'crmMedico'"
+        [name]="'crmMedico'"
+        [type]="'text'"
+        [placeholder]="'CRM do Médico'"
+        [parentForm]="receitaForm"
+      ></app-input>
+    </div>
+  </div>
+  <div class="col-12 md:col-12 lg:col-12 xl:col-12 row">
+    <div
+      class="
+        col-9
+        ml-6
+        mr-6
+        md:col-5 md:ml-6 md:mr-1
+        lg:col-4 lg:ml-6
+        xl:col-4 xl:ml-6
+      "
+    >
+      <app-input
+        [id]="'crfFarmaceutico'"
+        [name]="'crfFarmaceutico'"
+        [type]="'text'"
+        [placeholder]="'CRF do Farmaceutico'"
+        [parentForm]="receitaForm"
+      ></app-input>
+    </div>
+    <div
+      class="
+        col-9
+        ml-6
+        mr-6
+        md:col-5 md:ml-1 md:mr-6
+        lg:col-4 lg:mr-6
+        xl:col-4 xl:mr-6
+      "
+    >
+      <app-input
+        [id]="'arquivo'"
+        [name]="'arquivo'"
+        [type]="'text'"
+        [placeholder]="'Arquivo'"
+        [parentForm]="receitaForm"
+      ></app-input>
+    </div>
+  </div>
+  <div class="col-12 md:col-12 lg:col-12 xl:col-12 row">
+    <div
+      class="
+        col-9
+        ml-6
+        mr-6
+        md:col-5 md:ml-6 md:mr-1
+        lg:col-4 lg:ml-6
+        xl:col-4 xl:ml-6
+      "
+    >
+      <app-input
+        [id]="'dtInsercao'"
+        [name]="'dtInsercao'"
+        [type]="'text'"
+        [placeholder]="'Data de Insercão'"
+        [parentForm]="receitaForm"
+      ></app-input>
+    </div>
+    <div
+      class="
+        col-9
+        ml-6
+        mr-6
+        md:col-5 md:ml-1 md:mr-6
+        lg:col-4 lg:mr-6
+        xl:col-4 xl:mr-6
+      "
+    >
+      <app-input
+        [id]="'dtAlteracao'"
+        [name]="'dtAlteracao'"
+        [type]="'text'"
+        [placeholder]="'Data de Alteracão'"
+        [parentForm]="receitaForm"
+      ></app-input>
+    </div>
+  </div>
+  <div class="col-12 md:col-12 lg:col-12 xl:col-12 row">
+    <div
+      class="
+        col-9
+        ml-6
+        mr-6
+        md:col-5 md:ml-6 md:mr-1
+        lg:col-4 lg:ml-6
+        xl:col-4 xl:ml-6
+      "
+    >
+      <app-input
+        [id]="'dtExclusao'"
+        [name]="'dtExclusao'"
+        [type]="'text'"
+        [placeholder]="'Data de Exclusão'"
+        [parentForm]="receitaForm"
+      ></app-input>
+    </div>
+    <div
+      class="
+        col-9
+        ml-6
+        mr-6
+        md:col-5 md:ml-1 md:mr-6
+        lg:col-4 lg:mr-6
+        xl:col-4 xl:mr-6
+      "
+    >
+      <app-input
+        [id]="'status'"
+        [name]="'status'"
+        [type]="'text'"
+        [placeholder]="'Status'"
+        [parentForm]="receitaForm"
+      ></app-input>
+    </div>
+  </div>
+  <div class="col-12 row">
+    <div class="col-9 ml-6 mr-6 md:col-10 lg:col-12 xl:col-12">
+      <div class="col-12 lg:col-4 lg:col-offset-4 xl:col-4 xl:col-offset-4">
+        <p-button
+          label="Cadastrar"
+          styleClass="p-button-secondary button-submit"
+        ></p-button>
+      </div>
+    </div>
+  </div>
+</form>

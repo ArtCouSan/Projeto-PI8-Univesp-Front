@@ -7,10 +7,10 @@
             <th>Ações</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-car let-columns="columns">
+    <ng-template pTemplate="body" let-item let-columns="columns">
         <tr>
             <td *ngFor="let col of columns">
-                    {{car[col.field]}}
+                    {{item[col.field]}}
             </td>
             <td>
                 <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"></button>

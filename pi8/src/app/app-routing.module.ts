@@ -12,11 +12,15 @@ const routes: Routes = [
   },
   {
     path: 'medico',
-    loadChildren: () => import('./modules/famarcia/famarcia.module').then(m => m.FamarciaModule)
+    loadChildren: () => import('./modules/medico/medico.module').then(m => m.MedicoModule)
   },
   {
     path: 'paciente',
-    loadChildren: () => import('./modules/famarcia/famarcia.module').then(m => m.FamarciaModule)
+    loadChildren: () => import('./modules/paciente/paciente.module').then(m => m.PacienteModule)
+  },
+  {
+    path: 'receita',
+    loadChildren: () => import('./modules/receita/receita.module').then(m => m.ReceitaModule)
   }
 ];
 
