@@ -5,7 +5,8 @@ import { MedicoContainerConsultarComponent } from './medico-container-consultar/
 
 const routes: Routes = [
   { path: 'consultar', component: MedicoContainerConsultarComponent },
-  { path: 'cadastrar', component: MedicoContainerCadastrarComponent }
+  { path: 'cadastrar', component: MedicoContainerCadastrarComponent },
+  { path: 'consultar/editar/:id', component: MedicoContainerCadastrarComponent },
 ];
 
 @NgModule({

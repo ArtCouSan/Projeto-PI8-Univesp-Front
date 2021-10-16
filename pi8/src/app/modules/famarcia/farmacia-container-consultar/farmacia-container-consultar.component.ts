@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FarmaciaDTO } from 'src/app/core/farmacia.dto';
+import { FarmaciaDTO } from 'src/app/core/dto/farmacia.dto';
+import { FarmaciaService } from 'src/app/core/service/farmacia.service';
 
 @Component({
   selector: 'app-farmacia-container-consultar',
@@ -9,30 +10,19 @@ import { FarmaciaDTO } from 'src/app/core/farmacia.dto';
 export class FarmaciaContainerConsultarComponent implements OnInit {
 
   public cols = [
-    { field: 'cnpj', header: 'CNPJ' },
-    { field: 'nomeFantasia', header: 'Nome Fantasia' }
+    { field: 'cnpj', header: 'CNPJ', isDate: false },
+    { field: 'nomeFantasia', header: 'Nome Fantasia', isDate: false }
   ];
 
   public items: Array<FarmaciaDTO> = Array<FarmaciaDTO>();
 
-  constructor() { }
+  constructor(private readonly farmaciaService: FarmaciaService) { }
 
   ngOnInit(): void {
-    this.items.push({
-      cnpj: "1234",
-      nomeFantasia: "Teste"
-    });
-    this.items.push({
-      cnpj: "12345",
-      nomeFantasia: "Teste 2"
-    });
-    this.items.push({
-      cnpj: "123456",
-      nomeFantasia: "Teste 3"
-    });
-    this.items.push({
-      cnpj: "1234567",
-      nomeFantasia: "Teste 4"
+    this.farmaciaService.listFarmacias().subscribe({
+      next: resp => {
+        this.items = resp;
+      }
     });
   }
 

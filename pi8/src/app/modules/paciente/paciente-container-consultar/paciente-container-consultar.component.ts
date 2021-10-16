@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PacienteDTO } from 'src/app/core/paciente.dto';
+import { PacienteDTO } from 'src/app/core/dto/paciente.dto';
+import { PacienteService } from 'src/app/core/service/paciente.service';
 
 @Component({
   selector: 'app-paciente-container-consultar',
@@ -9,35 +10,20 @@ import { PacienteDTO } from 'src/app/core/paciente.dto';
 export class PacienteContainerConsultarComponent implements OnInit {
 
   public cols = [
-    { field: 'cpf', header: 'CPF' },
-    { field: 'nome', header: 'Nome Completo' },
-    { field: 'status', header: 'Status' }
+    { field: 'cpf', header: 'CPF', isDate: false },
+    { field: 'nome', header: 'Nome Completo', isDate: false },
+    { field: 'status', header: 'Status', isDate: false }
   ];
 
   public items: Array<PacienteDTO> = Array<PacienteDTO>();
 
-  constructor() { }
+  constructor(private readonly pacienteService: PacienteService) { }
 
   ngOnInit(): void {
-    this.items.push({
-      nome: "Teste",
-      status: "Ativo",
-      cpf: "1234"
-    });
-    this.items.push({
-      nome: "Teste 2",
-      status: "Ativo",
-      cpf: "1234"
-    });
-    this.items.push({
-      nome: "Teste 3",
-      status: "Ativo",
-      cpf: "1234"
-    });
-    this.items.push({
-      nome: "Teste 4",
-      status: "Ativo",
-      cpf: "1234"
+    this.pacienteService.listPacientes().subscribe({
+      next: resp => {
+        this.items = resp;
+      }
     });
   }
 

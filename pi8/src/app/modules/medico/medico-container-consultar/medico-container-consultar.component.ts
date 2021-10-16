@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MedicoDTO } from 'src/app/core/medico.dto';
+import { MedicoDTO } from 'src/app/core/dto/medico.dto';
+import { MedicoService } from 'src/app/core/service/medico.service';
 
 @Component({
   selector: 'app-medico-container-consultar',
@@ -9,41 +10,22 @@ import { MedicoDTO } from 'src/app/core/medico.dto';
 export class MedicoContainerConsultarComponent implements OnInit {
 
   public cols = [
-    { field: 'crm', header: 'CRM' },
-    { field: 'cpf', header: 'CPF' },
-    { field: 'nome', header: 'Nome Completo' },
-    { field: 'status', header: 'Status' }
+    { field: 'crm', header: 'CRM', isDate: false },
+    { field: 'cpf', header: 'CPF', isDate: false },
+    { field: 'nome', header: 'Nome Completo', isDate: false },
+    { field: 'status', header: 'Status', isDate: false }
   ];
 
   public items: Array<MedicoDTO> = Array<MedicoDTO>();
 
-  constructor() { }
+  constructor(private readonly medicoService: MedicoService) { }
 
   ngOnInit(): void {
-    this.items.push({
-      crm: "1234",
-      nome: "Teste",
-      status: "Ativo",
-      cpf: "1234"
-    });
-    this.items.push({
-      crm: "12345",
-      nome: "Teste 2",
-      status: "Ativo",
-      cpf: "1234"
-    });
-    this.items.push({
-      crm: "123456",
-      nome: "Teste 3",
-      status: "Ativo",
-      cpf: "1234"
-    });
-    this.items.push({
-      crm: "1234567",
-      nome: "Teste 4",
-      status: "Ativo",
-      cpf: "1234"
-    });
+    this.medicoService.listMedicos().subscribe({
+      next: resp => {
+        this.items = resp;
+      }
+    })
   }
 
 }

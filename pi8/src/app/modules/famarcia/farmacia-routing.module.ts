@@ -5,7 +5,8 @@ import { FarmaciaContainerConsultarComponent } from './farmacia-container-consul
 
 const routes: Routes = [
   { path: 'consultar', component: FarmaciaContainerConsultarComponent },
-  { path: 'cadastrar', component: FarmaciaContainerCadastrarComponent }
+  { path: 'cadastrar', component: FarmaciaContainerCadastrarComponent },
+  { path: 'consultar/editar/:id', component: FarmaciaContainerCadastrarComponent },
 ];
 
 @NgModule({

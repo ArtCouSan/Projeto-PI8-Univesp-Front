@@ -5,7 +5,8 @@ import { ReceitaContainerConsultarComponent } from './receita-container-consulta
 
 const routes: Routes = [
   { path: 'consultar', component: ReceitaContainerConsultarComponent },
-  { path: 'cadastrar', component: ReceitaContainerCadastrarComponent }
+  { path: 'cadastrar', component: ReceitaContainerCadastrarComponent },
+  { path: 'consultar/editar/:id', component: ReceitaContainerCadastrarComponent }
 ];
 
 @NgModule({

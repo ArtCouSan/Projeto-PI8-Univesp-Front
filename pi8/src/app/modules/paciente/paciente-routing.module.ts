@@ -5,7 +5,8 @@ import { PacienteContainerConsultarComponent } from './paciente-container-consul
 
 const routes: Routes = [
   { path: 'consultar', component: PacienteContainerConsultarComponent },
-  { path: 'cadastrar', component: PacienteContainerCadastrarComponent }
+  { path: 'cadastrar', component: PacienteContainerCadastrarComponent },
+  { path: 'consultar/editar/:id', component: PacienteContainerCadastrarComponent },
 ];
 
 @NgModule({

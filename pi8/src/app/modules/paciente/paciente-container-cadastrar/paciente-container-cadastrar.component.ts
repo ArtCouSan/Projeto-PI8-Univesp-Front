@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-paciente-container-cadastrar',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PacienteContainerCadastrarComponent implements OnInit {
 
-  constructor() { }
+  public sub: any;
+  public id: BehaviorSubject<string> = new BehaviorSubject<string>("");
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.sub = this.route.params.subscribe(params => {
+      this.id.next(params['id']);
+   });
   }
 
 }

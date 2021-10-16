@@ -7,10 +7,11 @@ import { ListboxModule } from 'primeng/listbox';
 import { InputComponent } from './component/input/input.component';
 import { SidemenuComponent } from './component/sidemenu/sidemenu.component';
 import { InputTextModule } from 'primeng/inputtext';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
-import {TableModule} from 'primeng/table';
+import { TableModule } from 'primeng/table';
 import { TableComponent } from './component/table/table.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { TableComponent } from './component/table/table.component';
     InputTextModule,
     ButtonModule,
     ReactiveFormsModule,
-TableModule
+    TableModule,
+    HttpClientModule,
+    FormsModule,
   ],
   exports: [
     NavbarComponent,
