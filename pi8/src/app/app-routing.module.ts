@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'receita',
     loadChildren: () => import('./modules/receita/receita.module').then(m => m.ReceitaModule)
+  },
+  {
+    path: 'farmaceutico',
+    loadChildren: () => import('./modules/farmaceutico/farmaceutico.module').then(m => m.FarmaceuticoModule)
   }
 ];
 
