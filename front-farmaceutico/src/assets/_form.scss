@@ -1,0 +1,195 @@
+@import "colors";
+
+.grid {
+  margin-top: 2rem !important;
+  max-width: 1140px;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+h6 {
+  margin-bottom: 0px !important;
+  margin-top: 10px !important;
+  margin-left: 10px;
+}
+
+.container-input {
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+.container-button {
+  margin-top: 15px;
+}
+
+.row--select {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.row--full {
+  padding: 7px 4px;
+}
+
+.font-weight--400 {
+  font-weight: 400;
+}
+
+.label-text-info {
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: 13px;
+  margin-bottom: 25px;
+  margin-top: 15px;
+}
+
+.label-text-signin {
+  color: $color-light-blue;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.label-text-signin {
+  color: $color-light-blue;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button-submit {
+  width: 100%;
+}
+
+input:focus {
+  top: 6px !important;
+  background-color: $color-white !important;
+  padding-left: 4px !important;
+  padding-right: 7px !important;
+}
+
+::ng-deep .p-float-label input:focus ~ label,
+::ng-deep .p-float-label input.p-filled ~ label,
+::ng-deep .p-float-label textarea:focus ~ label,
+::ng-deep .p-float-label textarea.p-filled ~ label,
+::ng-deep .p-float-label .p-inputwrapper-focus ~ label,
+::ng-deep .p-float-label .p-inputwrapper-filled ~ label {
+  top: 6px !important;
+  background-color: $color-white !important;
+  padding-left: 4px !important;
+  padding-right: 7px !important;
+}
+
+::ng-deep .p-button.button-submit {
+  width: 100%;
+  color: $color-white;
+  background-color: $color-dark-blue;
+  border-color: $color-dark-blue;
+  font-weight: 400;
+}
+
+@media (max-width: 575.98px) {
+  h6 {
+    text-align: left;
+  }
+  .button-submit {
+    margin-top: 30px;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: inherit;
+    height: auto;
+    margin: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+
+    & > * {
+      padding: 0px 0px 10px 0px;
+    }
+  }
+  .row--only-one {
+    height: 80px;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  h6 {
+    text-align: left;
+  }
+  .row {
+    height: 165px;
+
+    & > div:only-of-type {
+      margin-top: 15px !important;
+    }
+  }
+  .row--only-one {
+    height: 80px;
+  }
+  .row--calendar {
+    margin-bottom: 15px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .row {
+    display: flex;
+    justify-content: left;
+  }
+  h6 {
+    text-align: left;
+  }
+  .row--select {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .button-submit {
+    width: 100%;
+  }
+  .row {
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    align-items: center;
+  }
+  .row-col-full {
+    display: flex;
+    justify-content: center;
+    height: 70px;
+  }
+  h6 {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1200px) {
+  .button-submit {
+    width: 100%;
+  }
+  .row {
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    align-items: center;
+  }
+  .row-col-full {
+    display: flex;
+    justify-content: center;
+    height: 70px;
+  }
+  .row--textarea {
+    margin-bottom: 75px;
+  }
+  .row--col-input-select {
+    margin-top: 26px;
+  }
+  h6 {
+    text-align: left;
+  }
+}

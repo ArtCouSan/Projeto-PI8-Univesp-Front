@@ -1,0 +1,24 @@
+@import "../../../../assets/colors";
+
+::ng-deep .p-sidebar.sidebar {
+
+  .p-sidebar-header {
+    background-color: $color-blue-black !important;
+    margin-bottom: 10px;
+
+    .p-sidebar-icon {
+        color: $color-black;
+    }
+  }
+
+  .p-sidebar-content {
+    padding: 0px;
+  }
+
+}
+
+::ng-deep .p-listbox.listbox {
+
+  border: none !important;
+
+}
