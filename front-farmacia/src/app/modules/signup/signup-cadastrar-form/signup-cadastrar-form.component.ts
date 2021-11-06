@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import { Admin } from 'src/app/core/dto/admin.dto';
+import { FarmaciaDTO } from 'src/app/core/dto/farmacia.dto';
 import { AuthenticationService } from 'src/app/core/service/authentication.service';
 
 @Component({
@@ -25,9 +25,9 @@ export class SignupCadastrarFormComponent implements OnInit {
   }
 
   public onSubmit() {
-    let adminDTO: Admin = {
+    let adminDTO: FarmaciaDTO = {
       cnpj: this.signUpForm.get('cnpj')?.value,
-      nome: this.signUpForm.get('nome')?.value,
+      nomeFilial: this.signUpForm.get('nome')?.value,
       password: this.signUpForm.get('password')?.value
     }
     this.authService.register(adminDTO).subscribe(

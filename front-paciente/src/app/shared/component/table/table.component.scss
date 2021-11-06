@@ -1,0 +1,31 @@
+@import "../../../../assets/colors";
+
+::ng-deep .p-datatable.table {
+
+    margin: 40px !important;
+
+    .p-datatable-thead > tr > th {
+        border: 5px solid $color-dark-blue !important;
+        background-color: $color-dark-blue;
+        color: $color-white;
+    }
+}
+
+::ng-deep .p-button.button {
+    border-radius: 20px;
+    margin: 10px;
+    color: $color-white;
+
+    &--edit {
+        background-color: $color-yellow !important;
+        border-color: $color-yellow !important;
+        background: linear-gradient(135deg, $color-yellow 0%, $color-yellow 100%);
+    }
+
+    &--trash {
+        background-color: $color-red !important;
+        border-color: $color-red !important;
+        background: linear-gradient(135deg, $color-red 0%, $color-red 100%);
+    }
+}
+  

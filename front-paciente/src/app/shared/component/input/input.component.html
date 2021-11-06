@@ -1,0 +1,14 @@
+<div
+  [formGroup]="parentForm"
+  class="col-12 md:col-12 lg:col-12 xl:col-12 container-input"
+>
+  <span class="p-float-label">
+    <input
+      [id]="id"
+      [formControlName]="name"
+      [type]="type"
+      pInputText
+    />
+    <label [for]="id">{{ placeholder }}</label>
+  </span>
+</div>

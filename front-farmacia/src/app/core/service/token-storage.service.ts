@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Admin } from '../dto/admin.dto';
+import { FarmaciaDTO } from '../dto/farmacia.dto';
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
@@ -41,7 +41,7 @@ export class TokenStorageService {
   public getUser(): any {
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
-      return JSON.parse(user) as Admin;
+      return JSON.parse(user) as FarmaciaDTO;
     }
     return null;
   }
