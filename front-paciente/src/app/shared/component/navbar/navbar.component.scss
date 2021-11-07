@@ -1,8 +1,33 @@
 @import "../../../../assets/colors";
 
+i {
+  font-size: 50px;
+  color: $color-white;
+}
+
 .navbar {
   background-color: $color-blue-black;
   height: 100px;
+  display: flex;
+
+  .icon {
+    justify-content: start;
+    align-items: center;
+    display: flex;
+
+    .container-icon {
+      width: 130px;
+      height: 80px;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .menubar {
+    justify-content: end;
+    display: flex;
+  }
 }
 
 ::ng-deep .p-menubar.menubar {
@@ -41,6 +66,10 @@
     box-shadow: 1px 1px 12px 1px #20dad8 !important;
     margin-left: 12px;
     margin-right: 12px;
+
+    &:hover {
+      background-color: #20dad8 !important;
+    }
 
     .p-menuitem-text {
       color: #fff !important;

@@ -14,6 +14,7 @@ import { TableComponent } from './component/table/table.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {ToastModule} from 'primeng/toast';
 import { ToastComponent } from './component/toast/toast.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
