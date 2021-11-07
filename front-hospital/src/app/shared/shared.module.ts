@@ -21,7 +21,8 @@ import { ToastComponent } from './component/toast/toast.component';
     InputComponent,
     SidemenuComponent,
     TableComponent,
-    ToastComponent
+    ToastComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +42,8 @@ import { ToastComponent } from './component/toast/toast.component';
     InputComponent,
     SidemenuComponent,
     TableComponent,
-    ToastComponent
+    ToastComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }

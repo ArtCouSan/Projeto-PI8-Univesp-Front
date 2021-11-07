@@ -1,6 +1,7 @@
 <form [formGroup]="signUpForm" class="grid">
   <div class="col-12 md:col-12 lg:col-12 xl:col-12 row">
     <div
+      style="padding: 3px"
       class="
         col-9
         ml-6
@@ -51,8 +52,8 @@
       <app-input
         [id]="'password'"
         [name]="'password'"
-        [type]="'text'"
-        [placeholder]="'Password'"
+        [type]="'password'"
+        [placeholder]="'Senha'"
         [parentForm]="signUpForm"
       ></app-input>
     </div>
@@ -62,7 +63,7 @@
       <div class="col-12 lg:col-4 lg:col-offset-4 xl:col-4 xl:col-offset-4">
         <p-button
           (click)="onSubmit()"
-          label="Cadastrar"
+          label="Cadastrar-se"
           styleClass="p-button-secondary button-submit"
         ></p-button>
       </div>

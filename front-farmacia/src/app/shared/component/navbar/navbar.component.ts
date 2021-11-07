@@ -22,22 +22,22 @@ export class NavbarComponent implements OnInit {
     if (!user) {
       this.items = [
         {
-          label: 'SIGN IN',
+          label: 'Logar',
           routerLink: '/signin'
         },
         {
-          label: 'SIGN UP',
+          label: 'Cadastrar-se',
           routerLink: '/signup'
         }
       ];
     } else {
       this.items = [
         {
-          label: 'MENU',
+          label: 'Menu',
           command: e => this.abrirMenu()
         },
         {
-          label: 'LOGOUT',
+          label: 'Logout',
           command: e => this.logout()
         }
       ];
@@ -55,6 +55,7 @@ export class NavbarComponent implements OnInit {
   public logout = (): void => {
     this.tokenService.signOut();
     window.location.reload();
+    this.router.navigate(['/home']); 
   }
 
 }
