@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<form [formGroup]="receitaForm" class="grid">
+  <div class="col-12 md:col-12 lg:col-12 xl:col-12 row">
+    <div class="col-9 ml-6 mr-6 md:col-10 lg:col-12 xl:col-12">
+      <div class="col-12 lg:col-4 lg:col-offset-4 xl:col-4 xl:col-offset-4">
+        <app-input
+          [id]="'cpfPaciente'"
+          [name]="'cpfPaciente'"
+          [type]="'text'"
+          [placeholder]="'CPF do Paciente'"
+          [parentForm]="receitaForm"
+        ></app-input>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 md:col-12 lg:col-12 xl:col-12 row" style="height: 100%;">
+    <div class="col-9 ml-6 mr-6 md:col-10 lg:col-12 xl:col-12">
+      <div class="col-12 lg:col-4 lg:col-offset-4 xl:col-4 xl:col-offset-4">
+        <p-fileUpload
+          chooseLabel="Arquivo Receita"
+          mode="advanced"
+          name="file"
+          [showUploadButton]="false"
+          [showCancelButton]="false"
+          [multiple]="false"
+          (onSelect)="onUpload($event)"
+        ></p-fileUpload>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 row">
+    <div class="col-9 ml-6 mr-6 md:col-10 lg:col-12 xl:col-12">
+      <div class="col-12 lg:col-4 lg:col-offset-4 xl:col-4 xl:col-offset-4">
+        <p-button
+          (click)="onSubmit()"
+          label="Salvar"
+          styleClass="p-button-secondary button-submit"
+        ></p-button>
+      </div>
+    </div>
+  </div>
+</form>
+<app-toast></app-toast>
+<app-footer></app-footer>

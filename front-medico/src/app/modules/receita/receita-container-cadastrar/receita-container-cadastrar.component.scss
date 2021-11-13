@@ -1,0 +1,8 @@
+@import '../../../../assets/colors';
+@import '../../../../assets/buttons';
+@import '../../../../assets/form';
+
+    
+::ng-deep .p-button.p-fileupload-choose {
+    min-width: 100%;
+}
