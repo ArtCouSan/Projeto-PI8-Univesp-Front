@@ -24,10 +24,6 @@ export class NavbarComponent implements OnInit {
         {
           label: 'Logar',
           routerLink: '/signin'
-        },
-        {
-          label: 'Cadastrar-se',
-          routerLink: '/signup'
         }
       ];
     } else {
@@ -50,6 +46,10 @@ export class NavbarComponent implements OnInit {
 
   public abrirMenu = (): void => {
     this.display.next(true);
+  }
+
+  public toHome = (): void => {
+    this.router.navigate(['../']); 
   }
 
   public logout = (): void => {

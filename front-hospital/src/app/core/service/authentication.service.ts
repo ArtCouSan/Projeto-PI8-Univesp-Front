@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HospitalDTO } from '../dto/hospital.dto';
+import { MedicoDTO } from '../dto/medico.dto';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -27,6 +28,11 @@ export class AuthenticationService {
     register(admin: HospitalDTO): Observable<any> {
         const json = JSON.parse(JSON.stringify(admin));
         return this.http.post(environment.apiHospital, json, httpOptions);
+    }
+
+    registerMedico(admin: MedicoDTO): Observable<any> {
+        const json = JSON.parse(JSON.stringify(admin));
+        return this.http.post(environment.apiMedico, json, httpOptions);
     }
 
     refreshToken(token: string) {

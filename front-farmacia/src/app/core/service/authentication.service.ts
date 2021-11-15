@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { FarmaciaDTO } from '../dto/farmacia.dto';
+import { FarmaceuticoSaveDTO } from '../dto/farmaceutico-save.dto';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -27,6 +28,12 @@ export class AuthenticationService {
     register(admin: FarmaciaDTO): Observable<any> {
         const json = JSON.parse(JSON.stringify(admin));
         return this.http.post(environment.apiFarmacia, json, httpOptions);
+    }
+
+    
+    registerFarmaceutico(farmaceutico: FarmaceuticoSaveDTO): Observable<any> {
+        const json = JSON.parse(JSON.stringify(farmaceutico));
+        return this.http.post(environment.apiFarmaceutico, json, httpOptions);
     }
 
     refreshToken(token: string) {

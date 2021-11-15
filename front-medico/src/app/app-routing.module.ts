@@ -11,10 +11,6 @@ const routes: Routes = [
     loadChildren: () => import('./modules/signin/signin.module').then(m => m.SigninModule)
   },
   {
-    path: 'signup',
-    loadChildren: () => import('./modules/signup/signup.module').then(m => m.SignupModule)
-  },
-  {
     path: 'receita',
     loadChildren: () => import('./modules/receita/receita.module').then(m => m.ReceitaModule)
   }

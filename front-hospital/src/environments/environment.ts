@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiHospital: "http://localhost:3005/api/v1/hospital"
+  apiHospital: "http://localhost:3007/api/v1/hospital",
+  apiMedico: "http://localhost:3005/api/v1/medico"
 };
 
 /*

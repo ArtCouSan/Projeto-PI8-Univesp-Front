@@ -21,7 +21,9 @@ export class SidemenuComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.opcoes = [];
+    this.opcoes = [
+      { name: 'Cadastrar Médico', code: 'medico/cadastrar' }
+    ];
   }
 
   selecionadoImte($event: any) {

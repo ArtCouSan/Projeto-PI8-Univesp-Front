@@ -5,20 +5,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { SignupCadastrarFormComponent } from './signup-cadastrar-form/signup-cadastrar-form.component';
-import { SignupContainerComponent } from './signup-container/signup-container.component';
-import { SignUpRoutingModule } from './signup-routing.module';
-
+import { MedicoCadastrarFormComponent } from './medico-cadastrar-form/medico-cadastrar-form.component';
+import { MedicoContainerComponent } from './medico-container/medico-container.component';
+import { MedicoRoutingModule } from './medico-routing.module';
 
 
 @NgModule({
   declarations: [
-    SignupContainerComponent,
-    SignupCadastrarFormComponent
+    MedicoContainerComponent,
+    MedicoCadastrarFormComponent
   ],
   imports: [
     CommonModule,
-    SignUpRoutingModule,
+    MedicoRoutingModule,
     ButtonModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -26,4 +25,4 @@ import { SignUpRoutingModule } from './signup-routing.module';
   ],
   providers: [MessageService]
 })
-export class SignupModule { }
+export class MedicoModule { }

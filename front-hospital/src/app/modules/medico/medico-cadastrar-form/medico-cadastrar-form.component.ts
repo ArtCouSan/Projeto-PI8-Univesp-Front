@@ -1,23 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import { FarmaceuticoSaveDTO } from 'src/app/core/dto/farmaceutico-save.dto';
-import { FarmaceuticoDTO } from 'src/app/core/dto/farmaceutico.dto';
+import { MedicoDTO } from 'src/app/core/dto/medico.dto';
 import { AuthenticationService } from 'src/app/core/service/authentication.service';
 
 @Component({
-  selector: 'app-signup-cadastrar-form',
-  templateUrl: './signup-cadastrar-form.component.html',
-  styleUrls: ['./signup-cadastrar-form.component.scss']
+  selector: 'app-medico-cadastrar-form',
+  templateUrl: './medico-cadastrar-form.component.html',
+  styleUrls: ['./medico-cadastrar-form.component.scss']
 })
-export class SignupCadastrarFormComponent implements OnInit {
+export class MedicoCadastrarFormComponent implements OnInit {
 
   constructor(
     private authService: AuthenticationService,
     private messageService: MessageService) { }
 
   signUpForm = new FormGroup({
-    crf: new FormControl('', {}),
+    crm: new FormControl('', {}),
     nome: new FormControl(''),
     password: new FormControl('')
   });
@@ -26,12 +25,12 @@ export class SignupCadastrarFormComponent implements OnInit {
   }
 
   public onSubmit() {
-    let farmaceuticoDTO: FarmaceuticoSaveDTO = {
-      crf: this.signUpForm.get('crf')?.value,
+    let adminDTO: MedicoDTO = {
+      crm: this.signUpForm.get('crm')?.value,
       nome: this.signUpForm.get('nome')?.value,
       password: this.signUpForm.get('password')?.value
     }
-    this.authService.register(farmaceuticoDTO).subscribe(
+    this.authService.registerMedico(adminDTO).subscribe(
       data => {
         this.signUpForm.reset();
         this.messageService.clear();

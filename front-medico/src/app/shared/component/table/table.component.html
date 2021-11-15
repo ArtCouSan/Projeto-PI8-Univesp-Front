@@ -14,8 +14,8 @@
                 <label *ngIf="col.isDate">{{item[col.field] | date: 'dd/MM/yyyy'}}</label>
             </td>
             <td>
-                <p-button [routerLink]="['./editar', item['id']]" styleClass="button button--edit" pRipple icon="pi pi-pencil" class="p-button-rounded p-mr-2"></p-button>
-                <p-button styleClass="button button--trash" pRipple icon="pi pi-trash" class="p-button-rounded "></p-button>
+                <p-button (click)="deletarReceita(item['hash'])" styleClass="button button--trash" pRipple icon="pi pi-trash" class="p-button-rounded "></p-button>
+                <p-button (click)="baixarReceita(item['hash'])" styleClass="button button--edit" pRipple icon="pi pi-download" class="p-button-rounded "></p-button>
             </td>
         </tr>
     </ng-template>

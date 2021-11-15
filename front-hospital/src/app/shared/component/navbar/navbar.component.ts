@@ -58,4 +58,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/home']); 
   }
 
+  public toHome = (): void => {
+    this.router.navigate(['../']); 
+  }
 }

@@ -24,10 +24,6 @@ export class NavbarComponent implements OnInit {
         {
           label: 'Logar',
           routerLink: '/signin'
-        },
-        {
-          label: 'Cadastrar-se',
-          routerLink: '/signup'
         }
       ];
     } else {
@@ -58,4 +54,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/home']); 
   }
 
+  public toHome = (): void => {
+    this.router.navigate(['../']); 
+  }
 }
