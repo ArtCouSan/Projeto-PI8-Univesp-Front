@@ -8,3 +8,10 @@
   box-shadow: 0 6px 6px 0 $color-light-blue;
 }
 
+::ng-deep .p-button-secondary.button-submit.p-disabled {
+  color: $color-white;
+  background-color: $color-light-blue !important;
+  border-color: $color-light-black !important;
+  background: linear-gradient(135deg, $color-light-black 0%, $color-light-black 100%);
+  box-shadow: 0 6px 6px 0 $color-light-black;
+}

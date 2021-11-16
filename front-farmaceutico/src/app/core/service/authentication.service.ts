@@ -14,15 +14,16 @@ export class AuthenticationService {
 
     constructor(private http: HttpClient) { }
 
-    login(username: string, password: string): Observable<any> {
+    login(crf: string, cnpjFarmacia: string, password: string): Observable<any> {
+        const username = cnpjFarmacia.concat(crf);
         return this.http.post(`${environment.apiFarmaceutico}/login`, {
             username,
             password
         }, httpOptions);
     }
 
-    pegarUsuario(username: string): Observable<FarmaceuticoDTO> {
-        return this.http.get<FarmaceuticoDTO>(`${environment.apiFarmaceutico}/${username}`);
+    pegarUsuario(crf: string, cnpjFarmacia: string): Observable<FarmaceuticoDTO> {
+        return this.http.get<FarmaceuticoDTO>(`${environment.apiFarmaceutico}/${crf}/${cnpjFarmacia}`);
     }
 
     register(farmaceutico: FarmaceuticoSaveDTO): Observable<any> {

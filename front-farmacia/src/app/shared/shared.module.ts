@@ -15,15 +15,18 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {ToastModule} from 'primeng/toast';
 import { ToastComponent } from './component/toast/toast.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { InputMaskModule } from 'primeng/inputmask';
+import { InputMaskComponent } from './component/input-mask/input-mask.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    InputComponent,
+    InputMaskComponent,
     SidemenuComponent,
     TableComponent,
     ToastComponent,
-    FooterComponent
+    FooterComponent,
+    InputComponent
   ],
   imports: [
     CommonModule,
@@ -36,15 +39,17 @@ import { FooterComponent } from './component/footer/footer.component';
     TableModule,
     HttpClientModule,
     FormsModule,
-    ToastModule
+    ToastModule,
+    InputMaskModule
   ],
   exports: [
     NavbarComponent,
-    InputComponent,
+    InputMaskComponent,
     SidemenuComponent,
     TableComponent,
     ToastComponent,
-    FooterComponent
+    FooterComponent,
+    InputComponent
   ]
 })
 export class SharedModule { }

@@ -48,7 +48,7 @@ export class TableComponent implements OnInit {
         this.messageService.clear();
         this.messageService.add({severity:'error', summary:'Erro ao baixar receita', detail:''});
       }
-    });;
+    });
   }
 
 }

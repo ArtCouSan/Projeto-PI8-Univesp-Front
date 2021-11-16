@@ -22,8 +22,7 @@ export class SidemenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.opcoes = [
-      // { name: 'Consultar Farmacias', code: 'farmacia/consultar' },
-      // { name: 'Cadastrar Farmacia', code: 'farmacia/cadastrar' }
+      { name: 'Consultar Receitas', code: 'receita' }
     ];
   }
 

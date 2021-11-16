@@ -1,0 +1,10 @@
+<div
+  [formGroup]="parentForm"
+  class="col-12 md:col-12 lg:col-12 xl:col-12 container-input"
+>
+  <p-dropdown
+    [options]="behaviorSubjectCnpj$.value"
+    optionLabel="name"
+    [formControlName]="name"
+  ></p-dropdown>
+</div>

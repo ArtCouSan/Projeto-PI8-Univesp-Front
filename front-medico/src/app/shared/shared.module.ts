@@ -12,9 +12,13 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TableComponent } from './component/table/table.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import {ToastModule} from 'primeng/toast';
+import { ToastModule } from 'primeng/toast';
 import { ToastComponent } from './component/toast/toast.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { InputMaskModule } from 'primeng/inputmask';
+import { SelectComponent } from './component/select/select.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputMaskComponent } from './component/input-mask/input-mask.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ import { FooterComponent } from './component/footer/footer.component';
     SidemenuComponent,
     TableComponent,
     ToastComponent,
-    FooterComponent
+    FooterComponent,
+    SelectComponent,
+    InputMaskComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +42,9 @@ import { FooterComponent } from './component/footer/footer.component';
     TableModule,
     HttpClientModule,
     FormsModule,
-    ToastModule
+    ToastModule,
+    InputMaskModule,
+    DropdownModule
   ],
   exports: [
     NavbarComponent,
@@ -44,7 +52,9 @@ import { FooterComponent } from './component/footer/footer.component';
     SidemenuComponent,
     TableComponent,
     ToastComponent,
-    FooterComponent
+    FooterComponent,
+    SelectComponent,
+    InputMaskComponent
   ]
 })
 export class SharedModule { }

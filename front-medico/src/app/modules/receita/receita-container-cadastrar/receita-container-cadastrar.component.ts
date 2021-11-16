@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { MedicoDTO } from 'src/app/core/dto/medico.dto';
@@ -19,36 +19,39 @@ export class ReceitaContainerCadastrarComponent implements OnInit {
   constructor(
     private messageService: MessageService,
     private tokenStorage: TokenStorageService,
-    private receitaService: ReceitaService) { }
+    private receitaService: ReceitaService,
+    private formBuilder: FormBuilder) { }
 
-  receitaForm = new FormGroup({
-    cpfPaciente: new FormControl(''),
-    file: new FormControl('')
+  receitaForm = this.formBuilder.group({
+    cpfPaciente: [null, Validators.required],
+    file: [null, Validators.required]
   });
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    const cpfPaciente = this.receitaForm.get('cpfPaciente')?.value;
-    const file = this.receitaForm.get('file')?.value;
-    const crmMedico: MedicoDTO = this.tokenStorage.getUser();
-    let receita: ReceitaSaveDTO = {
-      cpfPaciente: cpfPaciente,
-      crmMedico: crmMedico.crm,
-      file: file
-    }
-    this.receitaService.salvarReceita(receita).subscribe({
-      next: resp => {
-        this.receitaForm.reset();
-        this.fileUpload.clear();
-        this.messageService.clear();
-        this.messageService.add({severity:'success', summary:'Receita salva com sucesso', detail:''});
-      }, error: error => {
-        this.messageService.clear();
-        this.messageService.add({ severity: 'error', summary: 'Erro ao salvar a receita', detail: error.error.message });
+  onSubmit(formValid: boolean) {
+    if(formValid) {
+      const cpfPaciente = this.receitaForm.get('cpfPaciente')?.value;
+      const file = this.receitaForm.get('file')?.value;
+      const crmMedico: MedicoDTO = this.tokenStorage.getUser();
+      let receita: ReceitaSaveDTO = {
+        cpfPaciente: cpfPaciente,
+        crmMedico: crmMedico.crm,
+        file: file
       }
-    });
+      this.receitaService.salvarReceita(receita).subscribe({
+        next: resp => {
+          this.receitaForm.reset();
+          this.fileUpload.clear();
+          this.messageService.clear();
+          this.messageService.add({severity:'success', summary:'Receita salva com sucesso', detail:''});
+        }, error: error => {
+          this.messageService.clear();
+          this.messageService.add({ severity: 'error', summary: 'Erro ao salvar a receita', detail: error.error.message });
+        }
+      });
+    }
   }
 
   onUpload($event: any) {

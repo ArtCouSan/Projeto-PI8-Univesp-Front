@@ -13,15 +13,16 @@ export class AuthenticationService {
 
     constructor(private http: HttpClient) { }
 
-    login(username: string, password: string): Observable<any> {
+    login(crm: string, cnpjHospital: string, password: string): Observable<any> {
+        const username = cnpjHospital.concat(crm);
         return this.http.post(`${environment.apiMedico}/login`, {
             username,
             password
         }, httpOptions);
     }
 
-    pegarUsuario(username: string): Observable<MedicoDTO> {
-        return this.http.get<MedicoDTO>(`${environment.apiMedico}/${username}`);
+    pegarUsuario(crm: string, cnpjHospital: string): Observable<MedicoDTO> {
+        return this.http.get<MedicoDTO>(`${environment.apiMedico}/${crm}/${cnpjHospital}`);
     }
 
     register(admin: MedicoDTO): Observable<any> {

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from "@angular/router";
 import { MessageService } from 'primeng/api';
+import { BehaviorSubject } from 'rxjs';
 import { AuthenticationService } from 'src/app/core/service/authentication.service';
+import { FarmaceuticoService } from 'src/app/core/service/farmaceutico.service';
 import { TokenStorageService } from 'src/app/core/service/token-storage.service';
-import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-signin-cadastrar-form',
@@ -13,30 +15,50 @@ import {Router} from "@angular/router"
 export class SigninCadastrarFormComponent implements OnInit {
 
   constructor(
-    private authService: AuthenticationService,
-    private messageService: MessageService,
-    private tokenStorage: TokenStorageService,
-    private router: Router) { }
+    private readonly authService: AuthenticationService,
+    private readonly messageService: MessageService,
+    private readonly tokenStorage: TokenStorageService,
+    private readonly router: Router,
+    private readonly farmaceuticoService: FarmaceuticoService ) { }
 
   signInForm = new FormGroup({
     crf: new FormControl(''),
+    cnpjFarmacia: new FormControl(''),
     password: new FormControl('')
   });
 
+  public behaviorSubjectCnpj$ = new BehaviorSubject<[{}]>([{name: 'Preencha o CRF', code: ''}]);
+
   ngOnInit(): void {
+    this.signInForm.get("crf")?.valueChanges.subscribe(selectedValue => {
+      this.farmaceuticoService.listarCNPJ(selectedValue).subscribe({
+        next: resp => {
+          if(resp.length > 0) {
+            this.behaviorSubjectCnpj$.next(resp);
+          } else {
+            resp = [{name: 'Preencha o CRF', code: ''}]
+            this.behaviorSubjectCnpj$.next(resp);
+          }
+        },
+        error: error => {
+          this.behaviorSubjectCnpj$.next([{name: 'Preencha o CRF', code: ''}]);
+        }
+      })
+    });
   }
 
   onSubmit() {
 
-    const username = this.signInForm.get('crf')?.value;
+    const crf = this.signInForm.get('crf')?.value;
     const password = this.signInForm.get('password')?.value;
+    const cnpjFarmacia = this.signInForm.get('cnpjFarmacia')?.value.code;
 
-    this.authService.login(username, password).subscribe(
+    this.authService.login(crf, cnpjFarmacia, password).subscribe(
       data => {
         this.tokenStorage.saveToken(data.access_token);
         this.tokenStorage.saveRefreshToken(data.access_token);
 
-        this.authService.pegarUsuario(username).subscribe(
+        this.authService.pegarUsuario(crf, cnpjFarmacia).subscribe(
           user => {
             this.tokenStorage.saveUser(user);
             this.router.navigate(['/']);
