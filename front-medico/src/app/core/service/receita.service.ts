@@ -20,6 +20,7 @@ export class ReceitaService {
         formData.append('file', receita.file[0], receita.file[0].name);
         formData.append('cpfPaciente', receita.cpfPaciente);
         formData.append('crmMedico', receita.crmMedico);
+        formData.append('cnpjHospital', receita.cnpjHospital);
         return this.http.post<any>(`${environment.apiReceita}/upload`, formData);
     }
 
@@ -27,8 +28,10 @@ export class ReceitaService {
         return this.http.get(`${environment.apiReceita}/download/${hash}`, {responseType: 'blob'});
     }
 
-    listarReceitas(crm: string): Observable<Array<ReceitaDTO>> {
-        return this.http.get<Array<ReceitaDTO>>(`${environment.apiReceita}/medico/${crm}`);
+    listarReceitas(crm: string, cnpj: string, cpfFiltrado: string): Observable<Array<ReceitaDTO>> {
+        return this.http.post<Array<ReceitaDTO>>(`${environment.apiReceita}/medico/${crm}/${cnpj}`, {
+            "cpfFiltrado": cpfFiltrado
+        });
     }
 
     deletarReceita(hash: string, crm: string): Observable<ReceitaDTO> {

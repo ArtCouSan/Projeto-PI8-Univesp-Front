@@ -1,5 +1,6 @@
 export interface ReceitaSaveDTO {
     file: File[],
     cpfPaciente: string,
-    crmMedico: string
+    crmMedico: string,
+    cnpjHospital: string
 }

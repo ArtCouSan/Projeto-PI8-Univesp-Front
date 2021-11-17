@@ -19,6 +19,7 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { SelectComponent } from './component/select/select.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputMaskComponent } from './component/input-mask/input-mask.component';
+import { CpfCnpjPipe } from './pipe/cpfcnpj.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { InputMaskComponent } from './component/input-mask/input-mask.component'
     ToastComponent,
     FooterComponent,
     SelectComponent,
-    InputMaskComponent
+    InputMaskComponent,
+    CpfCnpjPipe
   ],
   imports: [
     CommonModule,

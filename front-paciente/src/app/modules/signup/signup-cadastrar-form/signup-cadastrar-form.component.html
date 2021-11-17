@@ -15,13 +15,14 @@
   <div class="col-12 md:col-12 lg:col-12 xl:col-12 row">
     <div class="col-9 ml-6 mr-6 md:col-10 lg:col-12 xl:col-12">
       <div class="col-12 lg:col-4 lg:col-offset-4 xl:col-4 xl:col-offset-4">
-      <app-input
-        [id]="'cpf'"
-        [name]="'cpf'"
-        [type]="'text'"
-        [placeholder]="'CPF'"
-        [parentForm]="signUpForm"
-      ></app-input>
+        <app-input-mask
+          [id]="'cpf'"
+          [name]="'cpf'"
+          [type]="'text'"
+          [placeholder]="'CPF'"
+          [parentForm]="signUpForm"
+          [mask]="'999.999.999-99'"
+        ></app-input-mask>
     </div>
   </div>
 </div>

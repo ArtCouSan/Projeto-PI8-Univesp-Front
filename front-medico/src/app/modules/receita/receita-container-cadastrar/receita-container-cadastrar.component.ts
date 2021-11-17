@@ -34,10 +34,11 @@ export class ReceitaContainerCadastrarComponent implements OnInit {
     if(formValid) {
       const cpfPaciente = this.receitaForm.get('cpfPaciente')?.value;
       const file = this.receitaForm.get('file')?.value;
-      const crmMedico: MedicoDTO = this.tokenStorage.getUser();
+      const medico: MedicoDTO = this.tokenStorage.getUser();
       let receita: ReceitaSaveDTO = {
+        cnpjHospital: medico.cnpjHospital,
         cpfPaciente: cpfPaciente,
-        crmMedico: crmMedico.crm,
+        crmMedico: medico.crm,
         file: file
       }
       this.receitaService.salvarReceita(receita).subscribe({

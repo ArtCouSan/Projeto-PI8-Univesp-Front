@@ -15,6 +15,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {ToastModule} from 'primeng/toast';
 import { ToastComponent } from './component/toast/toast.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { InputMaskComponent } from './component/input-mask/input-mask.component';
+import { InputMaskModule } from 'primeng/inputmask';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { FooterComponent } from './component/footer/footer.component';
     SidemenuComponent,
     TableComponent,
     ToastComponent,
-    FooterComponent
+    FooterComponent,
+    InputMaskComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +39,8 @@ import { FooterComponent } from './component/footer/footer.component';
     TableModule,
     HttpClientModule,
     FormsModule,
-    ToastModule
+    ToastModule,
+    InputMaskModule,
   ],
   exports: [
     NavbarComponent,
@@ -44,7 +48,8 @@ import { FooterComponent } from './component/footer/footer.component';
     SidemenuComponent,
     TableComponent,
     ToastComponent,
-    FooterComponent
+    FooterComponent,
+    InputMaskComponent
   ]
 })
 export class SharedModule { }

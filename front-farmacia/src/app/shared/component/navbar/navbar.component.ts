@@ -54,8 +54,7 @@ export class NavbarComponent implements OnInit {
 
   public logout = (): void => {
     this.tokenService.signOut();
-    window.location.reload();
-    this.router.navigate(['/home']); 
+    this.router.navigate(['../']); 
   }
 
   public toHome = (): void => {
