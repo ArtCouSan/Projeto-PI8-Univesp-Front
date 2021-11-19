@@ -1,22 +1,25 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { SidebarModule } from 'primeng/sidebar';
-import { NavbarComponent } from './component/navbar/navbar.component';
-import { MenubarModule } from 'primeng/menubar';
-import { ListboxModule } from 'primeng/listbox';
-import { InputComponent } from './component/input/input.component';
-import { SidemenuComponent } from './component/sidemenu/sidemenu.component';
-import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { InputMaskModule } from 'primeng/inputmask';
+import { InputTextModule } from 'primeng/inputtext';
+import { ListboxModule } from 'primeng/listbox';
+import { MenubarModule } from 'primeng/menubar';
+import { SidebarModule } from 'primeng/sidebar';
 import { TableModule } from 'primeng/table';
-import { TableComponent } from './component/table/table.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import {ToastModule} from 'primeng/toast';
-import { ToastComponent } from './component/toast/toast.component';
+import { ToastModule } from 'primeng/toast';
 import { FooterComponent } from './component/footer/footer.component';
 import { InputMaskComponent } from './component/input-mask/input-mask.component';
-import { InputMaskModule } from 'primeng/inputmask';
+import { InputComponent } from './component/input/input.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { SidemenuComponent } from './component/sidemenu/sidemenu.component';
+import { TableComponent } from './component/table/table.component';
+import { ToastComponent } from './component/toast/toast.component';
+import { CpfCnpjPipe } from './pipe/cpfcnpj.pipe';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { InputMaskModule } from 'primeng/inputmask';
     TableComponent,
     ToastComponent,
     FooterComponent,
-    InputMaskComponent
+    InputMaskComponent,
+    CpfCnpjPipe
   ],
   imports: [
     CommonModule,
@@ -41,6 +45,8 @@ import { InputMaskModule } from 'primeng/inputmask';
     FormsModule,
     ToastModule,
     InputMaskModule,
+    DialogModule,
+    QRCodeModule
   ],
   exports: [
     NavbarComponent,

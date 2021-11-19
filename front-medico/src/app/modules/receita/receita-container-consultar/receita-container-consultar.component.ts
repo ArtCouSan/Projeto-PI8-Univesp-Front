@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MedicoDTO } from 'src/app/core/dto/medico.dto';
 import { ReceitaListDTO } from 'src/app/core/dto/receita-list.dto';
-import { ReceitaSaveDTO } from 'src/app/core/dto/receita-save.dto.';
-import { ReceitaDTO } from 'src/app/core/dto/receita.dto';
 import { ReceitaService } from 'src/app/core/service/receita.service';
 import { TokenStorageService } from 'src/app/core/service/token-storage.service';
 
@@ -30,10 +28,13 @@ export class ReceitaContainerConsultarComponent implements OnInit {
           this.items = [];
           resp.forEach(receita => {
             this.items.push({
+              crfFarmaceutico: receita.farmaceutico?.crf ? receita.farmaceutico.crf : '-',
+              crmMedico: receita.medico?.crm ? receita.medico.crm : '-',
               cpfPaciente: receita.paciente.cpf,
               hash: receita.hash,
               status: receita.status,
-              dtInsercao: receita.dtInsercao
+              dtInsercao: receita.dtInsercao,
+              cnpjFarmaceutico: receita.farmaceutico?.cnpjFarmacia ? receita.farmaceutico?.cnpjFarmacia : '-'
             })
           });
         }
@@ -43,10 +44,14 @@ export class ReceitaContainerConsultarComponent implements OnInit {
       next: resp => {
         resp.forEach(receita => {
           this.items.push({
+            crfFarmaceutico: receita.farmaceutico?.crf ? receita.farmaceutico.crf : '-',
+            crmMedico: receita.medico?.crm ? receita.medico.crm : '-',
             cpfPaciente: receita.paciente.cpf,
             hash: receita.hash,
             status: receita.status,
-            dtInsercao: receita.dtInsercao
+            dtInsercao: receita.dtInsercao,
+            cnpjFarmaceutico: receita.farmaceutico?.cnpjFarmacia ? receita.farmaceutico?.cnpjFarmacia : '-'
+
           })
         });
       }
@@ -56,9 +61,11 @@ export class ReceitaContainerConsultarComponent implements OnInit {
   public items: Array<ReceitaListDTO> = Array<ReceitaListDTO>();
 
   public cols = [
-    { field: 'dtInsercao', header: 'Data de Insercão', isDate: true, isDoc: false },
+    { field: 'dtInsercao', header: 'Data Insercão', isDate: true, isDoc: false },
+    { field: 'crfFarmaceutico', header: 'CRF do Farmaceutico', isDate: false, isDoc: false },
+    { field: 'crmMedico', header: 'CRM do Médico', isDate: false, isDoc: false },
     { field: 'cpfPaciente', header: 'CPF do Paciente', isDate: false, isDoc: true },
-    { field: 'status', header: 'Status do Registro', isDate: false, isDoc: false }
+    { field: 'status', header: 'Status', isDate: false, isDoc: false }
   ];
 
 }

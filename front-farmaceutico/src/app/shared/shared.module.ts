@@ -17,6 +17,9 @@ import { ToastComponent } from './component/toast/toast.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { SelectComponent } from './component/select/select.component';
 import { DropdownModule } from 'primeng/dropdown';
+import { CpfCnpjPipe } from './pipe/cpfcnpj.pipe';
+import { InputMaskComponent } from './component/input-mask/input-mask.component';
+import { InputMaskModule } from 'primeng/inputmask';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { DropdownModule } from 'primeng/dropdown';
     TableComponent,
     ToastComponent,
     FooterComponent,
-    SelectComponent
+    SelectComponent,
+    InputMaskComponent,
+    CpfCnpjPipe
   ],
   imports: [
     CommonModule,
@@ -40,6 +45,7 @@ import { DropdownModule } from 'primeng/dropdown';
     HttpClientModule,
     FormsModule,
     ToastModule,
+    InputMaskModule,
     DropdownModule
   ],
   exports: [
@@ -49,7 +55,8 @@ import { DropdownModule } from 'primeng/dropdown';
     TableComponent,
     ToastComponent,
     FooterComponent,
-    SelectComponent
+    SelectComponent,
+    InputMaskComponent
   ]
 })
 export class SharedModule { }

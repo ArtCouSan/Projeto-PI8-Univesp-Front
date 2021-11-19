@@ -15,11 +15,31 @@ export class ReceitaService {
     constructor(private http: HttpClient) { }
 
     buscarReceita(hash: string) {
-        return this.http.get(`${environment.apiReceita}/download/${hash}`, {responseType: 'blob'});
+        return this.http.get(`${environment.apiReceita}/download/${hash}`, { responseType: 'blob' });
     }
 
-    listarReceitas(cpf: string): Observable<Array<ReceitaDTO>> {
-        return this.http.get<Array<ReceitaDTO>>(`${environment.apiReceita}/farmaceutico/${cpf}`);
+    listarReceitas(cpfFiltrado: string): Observable<Array<ReceitaDTO>> {
+        return this.http.post<Array<ReceitaDTO>>(`${environment.apiReceita}/farmaceutico`, {
+            "cpfFiltrado": cpfFiltrado
+        });
+    }
+
+    listarMinhasReceitas(crf: string, cnpj: string,cpfFiltrado: string): Observable<Array<ReceitaDTO>> {
+        return this.http.post<Array<ReceitaDTO>>(`${environment.apiReceita}/farmaceutico/${crf}/${cnpj}`, {
+            "cpfFiltrado": cpfFiltrado
+        });
+    }
+
+    analisarReceitaPacienteComoFarmaceuticorReceitasFarmaceutico(hash: string, crf: string, cnpj: string) {
+        return this.http.get(`${environment.apiReceita}/${hash}/farmaceutico/analisar/${crf}/${cnpj}`);
+    }
+
+    devolverReceitaPacienteComoFarmaceuticorReceitasFarmaceutico(hash: string) {
+        return this.http.get(`${environment.apiReceita}/${hash}/farmaceutico/devolver`);
+    }
+
+    finalizarReceitaPacienteComoFarmaceuticorReceitasFarmaceutico(hash: string, crf: string, cnpj: string): Observable<Array<ReceitaDTO>> {
+        return this.http.get<Array<ReceitaDTO>>(`${environment.apiReceita}/${hash}/farmaceutico/finalizar/${crf}/${cnpj}`);
     }
 
 }

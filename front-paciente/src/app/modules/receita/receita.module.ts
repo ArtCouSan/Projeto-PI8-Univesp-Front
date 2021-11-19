@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReceitaContainerCadastrarComponent } from './receita-container-cadastrar/receita-container-cadastrar.component';
 import { ReceitaContainerConsultarComponent } from './receita-container-consultar/receita-container-consultar.component';
 import { ReceitaRoutingModule } from './receita-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';

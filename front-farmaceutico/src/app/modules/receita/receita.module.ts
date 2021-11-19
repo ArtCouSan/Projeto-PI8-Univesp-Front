@@ -10,10 +10,12 @@ import { MessageService } from 'primeng/api';
 import { FileUploadModule } from 'primeng/fileupload';
 import { HttpClientModule } from '@angular/common/http';
 import { ReceitaService } from 'src/app/core/service/receita.service';
+import { ReceitaContainerConsultarFarmaceuticoComponent } from './receita-container-consultar-farmaceutico/receita-container-consultar-farmaceutico.component';
 
 @NgModule({
   declarations: [
-    ReceitaContainerConsultarComponent
+    ReceitaContainerConsultarComponent,
+    ReceitaContainerConsultarFarmaceuticoComponent
   ],
   imports: [
     CommonModule,

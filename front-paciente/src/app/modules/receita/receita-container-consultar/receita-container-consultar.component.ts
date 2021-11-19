@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MedicoDTO } from 'src/app/core/dto/medico.dto';
+import { PacienteDTO } from 'src/app/core/dto/paciente.dto';
 import { ReceitaListDTO } from 'src/app/core/dto/receita-list.dto';
-import { ReceitaSaveDTO } from 'src/app/core/dto/receita-save.dto.';
-import { ReceitaDTO } from 'src/app/core/dto/receita.dto';
 import { ReceitaService } from 'src/app/core/service/receita.service';
 import { TokenStorageService } from 'src/app/core/service/token-storage.service';
 
@@ -17,15 +15,18 @@ export class ReceitaContainerConsultarComponent implements OnInit {
     private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
-    let medico: MedicoDTO = this.tokenStorage.getUser();
-    this.receitaService.listarReceitas(medico.crm).subscribe({
+    let paciente: PacienteDTO = this.tokenStorage.getUser();
+    this.receitaService.listarReceitas(paciente.cpf).subscribe({
       next: resp => {
         resp.forEach(receita => {
           this.items.push({
+            crfFarmaceutico: receita.farmaceutico?.crf ? receita.farmaceutico.crf : '-',
+            crmMedico: receita.medico?.crm ? receita.medico.crm : '-',
             cpfPaciente: receita.paciente.cpf,
             hash: receita.hash,
             status: receita.status,
-            dtInsercao: receita.dtInsercao
+            dtInsercao: receita.dtInsercao,
+            showQrcode: false
           })
         });
       }
@@ -35,9 +36,11 @@ export class ReceitaContainerConsultarComponent implements OnInit {
   public items: Array<ReceitaListDTO> = Array<ReceitaListDTO>();
 
   public cols = [
-    { field: 'dtInsercao', header: 'Data Insercão', isDate: true },
-    { field: 'cpfPaciente', header: 'CPF do Paciente', isDate: false },
-    { field: 'status', header: 'Status', isDate: false }
+    { field: 'dtInsercao', header: 'Data Insercão', isDate: true, isDoc: false },
+    { field: 'crfFarmaceutico', header: 'CRF do Farmaceutico', isDate: false, isDoc: false },
+    { field: 'crmMedico', header: 'CRM do Médico', isDate: false, isDoc: false },
+    { field: 'cpfPaciente', header: 'CPF do Paciente', isDate: false, isDoc: true},
+    { field: 'status', header: 'Status', isDate: false, isDoc: false }
   ];
 
 }

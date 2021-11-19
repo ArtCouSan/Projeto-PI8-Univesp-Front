@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import * as fileSaver from 'file-saver';
 import { MessageService } from 'primeng/api';
 import { MedicoDTO } from 'src/app/core/dto/medico.dto';
 import { ReceitaListDTO } from 'src/app/core/dto/receita-list.dto';
 import { ReceitaService } from 'src/app/core/service/receita.service';
 import { TokenStorageService } from 'src/app/core/service/token-storage.service';
-import * as fileSaver from 'file-saver';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',

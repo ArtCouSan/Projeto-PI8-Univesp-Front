@@ -6,11 +6,11 @@ import { ReceitaService } from 'src/app/core/service/receita.service';
 import { TokenStorageService } from 'src/app/core/service/token-storage.service';
 
 @Component({
-  selector: 'app-receita-container-consultar',
-  templateUrl: './receita-container-consultar.component.html',
-  styleUrls: ['./receita-container-consultar.component.scss']
+  selector: 'app-receita-container-consultar-farmaceutico',
+  templateUrl: './receita-container-consultar-farmaceutico.component.html',
+  styleUrls: ['./receita-container-consultar-farmaceutico.component.scss']
 })
-export class ReceitaContainerConsultarComponent implements OnInit {
+export class ReceitaContainerConsultarFarmaceuticoComponent implements OnInit {
 
   constructor(private readonly receitaService: ReceitaService,
     private tokenStorage: TokenStorageService) { }
@@ -23,34 +23,34 @@ export class ReceitaContainerConsultarComponent implements OnInit {
     let farmaceutico: FarmaceuticoDTO = this.tokenStorage.getUser();
 
     this.searchForm.get("busca")?.valueChanges.subscribe(cpfFiltrado => {
-      this.receitaService.listarReceitas(cpfFiltrado).subscribe({
+      this.receitaService.listarMinhasReceitas(farmaceutico.crf, farmaceutico.cnpjFarmacia, cpfFiltrado).subscribe({
         next: resp => {
           this.items = [];
           resp.forEach(receita => {
             this.items.push({
-              crfFarmaceutico: farmaceutico.crf,
+              crfFarmaceutico: receita.farmaceutico?.crf ? receita.farmaceutico.crf : '-',
               crmMedico: receita.medico?.crm ? receita.medico.crm : '-',
               cpfPaciente: receita.paciente.cpf,
               hash: receita.hash,
               status: receita.status,
               dtInsercao: receita.dtInsercao,
-              cnpjFarmaceutico: farmaceutico.cnpjFarmacia
+              cnpjFarmaceutico: receita.farmaceutico?.cnpjFarmacia ? receita.farmaceutico?.cnpjFarmacia : '-'
             })
           });
         }
       });
     });
-    this.receitaService.listarReceitas("").subscribe({
+    this.receitaService.listarMinhasReceitas(farmaceutico.crf, farmaceutico.cnpjFarmacia, "").subscribe({
       next: resp => {
         resp.forEach(receita => {
           this.items.push({
-            crfFarmaceutico: farmaceutico.crf,
+            crfFarmaceutico: receita.farmaceutico?.crf ? receita.farmaceutico.crf : '-',
             crmMedico: receita.medico?.crm ? receita.medico.crm : '-',
             cpfPaciente: receita.paciente.cpf,
             hash: receita.hash,
             status: receita.status,
             dtInsercao: receita.dtInsercao,
-            cnpjFarmaceutico: farmaceutico.cnpjFarmacia
+            cnpjFarmaceutico: receita.farmaceutico?.cnpjFarmacia ? receita.farmaceutico?.cnpjFarmacia : '-'
           })
         });
       }
