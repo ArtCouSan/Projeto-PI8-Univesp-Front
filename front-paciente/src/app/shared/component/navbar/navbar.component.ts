@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { BehaviorSubject } from 'rxjs';
@@ -11,14 +11,15 @@ import { TokenStorageService } from 'src/app/core/service/token-storage.service'
 })
 export class NavbarComponent implements OnInit {
 
-  items: Array<MenuItem> = Array<MenuItem>();
-  display: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public items: Array<MenuItem> = Array<MenuItem>();
+  public display: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private tokenService: TokenStorageService,
     private router: Router) { }
 
   ngOnInit(): void {
     const user = this.tokenService.getUser();
+
     if (!user) {
       this.items = [
         {
@@ -54,10 +55,10 @@ export class NavbarComponent implements OnInit {
 
   public logout = (): void => {
     this.tokenService.signOut();
-    this.router.navigate(['../']); 
+    this.router.navigate(['../']);
   }
 
   public toHome = (): void => {
-    this.router.navigate(['../']); 
+    this.router.navigate(['../']);
   }
 }

@@ -30,20 +30,39 @@ i {
     display: flex;
   }
 }
+::ng-deep p-menubar {
+  /* Small devices (landscape phones, 576px and up) */
+  @media (max-width: 991.98px) {
+    width: 50%;
+  }
+}
 
 ::ng-deep .p-menubar.menubar {
   background-color: transparent !important;
   border: none;
-  color: #fff;
+  color: $color-white;
 
   .p-menubar-button {
+    color: $color-white;
+
+    /* Small devices (landscape phones, 576px and up) */
+    @media (max-width: 991.98px) {
+      width: 100%;
+      justify-content: end;
+    }
+
     &:hover {
       background-color: transparent;
       border: 1px solid transparent;
     }
+
+    &:focus {
+      box-shadow: none !important;
+    }
   }
 
   .p-menuitem-link {
+    align-items: center;
     background-color: transparent !important;
     border: 2px $color-light-blue !important;
 
@@ -55,9 +74,9 @@ i {
   }
 
   .p-menubar-root-list {
+    background-color: $color-blue-black !important;
     flex-direction: inherit;
     flex-wrap: wrap;
-    background-color: transparent !important;
   }
 
   .p-menuitem {
@@ -65,16 +84,34 @@ i {
     border: 2px solid $color-light-blue !important;
     border-radius: 20px;
     box-shadow: 1px 1px 12px 1px #20dad8 !important;
-    margin-left: 12px;
-    margin-right: 12px;
+
+    /* Small devices (landscape phones, 576px and up) */
+    @media (max-width: 991px) {
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+
+    /* Large devices (desktops, 992px and up) */
+    @media (min-width: 992px) {
+      margin-left: 12px;
+      margin-right: 12px;
+    }
 
     &:hover {
       background-color: #20dad8 !important;
     }
 
     .p-menuitem-text {
-      color: #fff !important;
+      color: $color-white !important;
       font-weight: 600;
     }
   }
+
+  p-menubarsub {
+    ul {
+      border-radius: 20px;
+      padding: 12px;
+    }
+  }
 }
+

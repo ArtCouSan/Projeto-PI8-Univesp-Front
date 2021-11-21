@@ -1,26 +1,64 @@
-<p-table styleClass="table" [columns]="cols" [value]="items">
+<div class="card">
+  <p-table
+    responsiveLayout="scroll"
+    styleClass="table"
+    [columns]="cols"
+    [value]="items"
+  >
     <ng-template pTemplate="header" let-columns>
-        <tr>
-            <th *ngFor="let col of columns">
-                {{col.header}}
-            </th>
-            <th>Ações</th>
-        </tr>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{ col.header }}
+        </th>
+        <th>Ações</th>
+      </tr>
     </ng-template>
     <ng-template pTemplate="body" let-item let-columns="columns">
-        <tr>
-            <td *ngFor="let col of columns">
-                <label *ngIf="!col.isDate && !col.isDoc">{{item[col.field]}}</label>
-                <label *ngIf="col.isDate && !col.isDoc">{{item[col.field] | date: 'dd/MM/yyyy'}}</label>
-                <label *ngIf="!col.isDate && col.isDoc">{{item[col.field] | cpfcnpj }}</label>
-            </td>
-            <td>
-                <p-button (click)="baixarReceita(item['hash'])" styleClass="button button--edit" pRipple icon="pi pi-download" class="p-button-rounded "></p-button>
-                <p-button *ngIf="item['status'] == 'Em aberto'" (click)="analisarReceita(item['hash'], item)" styleClass="button button--bookmark" pRipple icon="pi pi-bookmark" class="p-button-rounded "></p-button>
-                <p-button *ngIf="item['status'] != 'Em aberto'" (click)="devolverReceita(item['hash'])" styleClass="button button--return" pRipple icon="pi pi-replay" class="p-button-rounded "></p-button>
-                <p-button *ngIf="item['status'] == 'Em analise'" (click)="finalizarReceita(item['hash'], item)" styleClass="button button--bookmark" pRipple icon="pi pi-check" class="p-button-rounded "></p-button>
-            </td>
-        </tr>
+      <tr>
+        <td *ngFor="let col of columns">
+          <label *ngIf="!col.isDate && !col.isDoc">{{ item[col.field] }}</label>
+          <label *ngIf="col.isDate && !col.isDoc">{{
+            item[col.field] | date: "dd/MM/yyyy"
+          }}</label>
+          <label *ngIf="!col.isDate && col.isDoc">{{
+            item[col.field] | cpfcnpj
+          }}</label>
+        </td>
+        <td>
+          <p-button
+            (click)="baixarReceita(item['hash'])"
+            styleClass="button button--edit"
+            pRipple
+            icon="pi pi-download"
+            class="p-button-rounded"
+          ></p-button>
+          <p-button
+            *ngIf="item['status'] == 'Em aberto'"
+            (click)="analisarReceita(item['hash'], item)"
+            styleClass="button button--bookmark"
+            pRipple
+            icon="pi pi-bookmark"
+            class="p-button-rounded"
+          ></p-button>
+          <p-button
+            *ngIf="item['status'] == 'Em analise'"
+            (click)="devolverReceita(item['hash'])"
+            styleClass="button button--return"
+            pRipple
+            icon="pi pi-replay"
+            class="p-button-rounded"
+          ></p-button>
+          <p-button
+            *ngIf="item['status'] == 'Em analise'"
+            (click)="finalizarReceita(item['hash'], item)"
+            styleClass="button button--bookmark"
+            pRipple
+            icon="pi pi-check"
+            class="p-button-rounded"
+          ></p-button>
+        </td>
+      </tr>
     </ng-template>
-</p-table>
-<app-toast></app-toast>
+  </p-table>
+  <app-toast></app-toast>
+</div>

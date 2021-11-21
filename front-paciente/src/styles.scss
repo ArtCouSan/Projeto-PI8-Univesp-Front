@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-top: 0px; /* bottom = footer height */
+  margin-bottom: 100px; /* bottom = footer height */
+  margin-right: 0px; /* bottom = footer height */
+  margin-left: 0px; /* bottom = footer height */
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+  margin-top: 0rem !important;
+}

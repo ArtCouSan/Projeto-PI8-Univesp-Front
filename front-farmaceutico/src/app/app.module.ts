@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/_helpers/auth.interceptor';
+import { AuthGaurd } from './core/guards/auth.guards';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +22,8 @@ import { AuthInterceptor } from './core/_helpers/auth.interceptor';
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }],
+  },
+  AuthGaurd],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

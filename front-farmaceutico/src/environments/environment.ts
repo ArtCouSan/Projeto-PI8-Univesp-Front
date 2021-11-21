@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiFarmaceutico: "http://localhost:3004/api/v1/farmaceutico",
-  apiReceita: "http://localhost:3006/api/v1/receita"
+  apiFarmaceutico: "http://192.168.0.110:3004/api/v1/farmaceutico",
+  apiReceita: "http://192.168.0.110:3006/api/v1/receita"
 };
 
 /*

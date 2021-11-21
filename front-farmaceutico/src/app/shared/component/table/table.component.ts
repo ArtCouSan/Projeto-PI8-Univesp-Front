@@ -3,7 +3,6 @@ import * as fileSaver from 'file-saver';
 import { MessageService } from 'primeng/api';
 import { ReceitaListDTO } from 'src/app/core/dto/receita-list.dto';
 import { ReceitaService } from 'src/app/core/service/receita.service';
-import { TokenStorageService } from 'src/app/core/service/token-storage.service';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -15,7 +14,6 @@ export class TableComponent implements OnInit {
   @Input() items: Array<ReceitaListDTO> = Array<ReceitaListDTO>();
 
   constructor(private readonly receitaService: ReceitaService,
-    private tokenStorage: TokenStorageService,
     private messageService: MessageService) { }
 
   ngOnInit(): void {
@@ -72,7 +70,9 @@ export class TableComponent implements OnInit {
             hash: receita.hash,
             status: receita.status,
             dtInsercao: receita.dtInsercao,
-            cnpjFarmaceutico: receita.farmaceutico?.cnpjFarmacia ? receita.farmaceutico?.cnpjFarmacia : '-'
+            cnpjFarmaceutico: receita.farmaceutico?.cnpjFarmacia ? receita.farmaceutico?.cnpjFarmacia : '-',
+            nomeHospital: receita.medico?.hospital.nomeFantasia ? receita.medico.hospital.nomeFantasia : '-',
+            nomePaciente: receita.paciente.nome,
           })
         });
         this.messageService.clear();

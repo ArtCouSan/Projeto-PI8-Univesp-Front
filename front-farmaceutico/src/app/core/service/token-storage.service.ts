@@ -12,37 +12,45 @@ export class TokenStorageService {
   constructor() { }
 
   signOut(): void {
-    window.sessionStorage.clear();
+    localStorage.clear();
   }
 
   public saveRefreshToken(token: string): void {
-    window.sessionStorage.removeItem(REFRESHTOKEN_KEY);
-    window.sessionStorage.setItem(REFRESHTOKEN_KEY, token);
+    localStorage.removeItem(REFRESHTOKEN_KEY);
+    localStorage.setItem(REFRESHTOKEN_KEY, token);
   }
 
   public getRefreshToken(): string | null {
-    return window.sessionStorage.getItem(REFRESHTOKEN_KEY);
+    return localStorage.getItem(REFRESHTOKEN_KEY);
   }
 
   public saveToken(token: string): void {
-    window.sessionStorage.removeItem(TOKEN_KEY);
-    window.sessionStorage.setItem(TOKEN_KEY, "Bearer ".concat(token));
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.setItem(TOKEN_KEY, "Bearer ".concat(token));
   }
 
   public getToken(): string | null {
-    return window.sessionStorage.getItem(TOKEN_KEY);
+    return localStorage.getItem(TOKEN_KEY);
   }
 
   public saveUser(user: any): void {
-    window.sessionStorage.removeItem(USER_KEY);
-    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+    localStorage.removeItem(USER_KEY);
+    localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
   public getUser(): any {
-    const user = window.sessionStorage.getItem(USER_KEY);
+    const user = localStorage.getItem(USER_KEY);
     if (user) {
       return JSON.parse(user) as FarmaceuticoDTO;
     }
     return null;
+  }
+
+  public isAuthenticated(): boolean {
+    const user = localStorage.getItem(USER_KEY);
+    if (user) {
+      return true;
+    }
+    return false;
   }
 }

@@ -31,10 +31,12 @@ export class ReceitaContainerConsultarComponent implements OnInit {
               crfFarmaceutico: farmaceutico.crf,
               crmMedico: receita.medico?.crm ? receita.medico.crm : '-',
               cpfPaciente: receita.paciente.cpf,
+              nomePaciente: receita.paciente.nome,
               hash: receita.hash,
               status: receita.status,
               dtInsercao: receita.dtInsercao,
-              cnpjFarmaceutico: farmaceutico.cnpjFarmacia
+              cnpjFarmaceutico: farmaceutico.cnpjFarmacia,
+              nomeHospital: receita.medico?.hospital.nomeFantasia ? receita.medico.hospital.nomeFantasia : '-'
             })
           });
         }
@@ -47,10 +49,12 @@ export class ReceitaContainerConsultarComponent implements OnInit {
             crfFarmaceutico: farmaceutico.crf,
             crmMedico: receita.medico?.crm ? receita.medico.crm : '-',
             cpfPaciente: receita.paciente.cpf,
+            nomePaciente: receita.paciente.nome,
             hash: receita.hash,
             status: receita.status,
             dtInsercao: receita.dtInsercao,
-            cnpjFarmaceutico: farmaceutico.cnpjFarmacia
+            cnpjFarmaceutico: farmaceutico.cnpjFarmacia,
+            nomeHospital: receita.medico?.hospital.nomeFantasia ? receita.medico.hospital.nomeFantasia : '-'
           })
         });
       }
@@ -61,8 +65,9 @@ export class ReceitaContainerConsultarComponent implements OnInit {
 
   public cols = [
     { field: 'dtInsercao', header: 'Data Insercão', isDate: true, isDoc: false },
-    { field: 'crfFarmaceutico', header: 'CRF do Farmaceutico', isDate: false, isDoc: false },
+    { field: 'nomeHospital', header: 'Hospital', isDate: false, isDoc: false },
     { field: 'crmMedico', header: 'CRM do Médico', isDate: false, isDoc: false },
+    { field: 'nomePaciente', header: 'Nome do Paciente', isDate: false, isDoc: false },
     { field: 'cpfPaciente', header: 'CPF do Paciente', isDate: false, isDoc: true },
     { field: 'status', header: 'Status', isDate: false, isDoc: false }
   ];

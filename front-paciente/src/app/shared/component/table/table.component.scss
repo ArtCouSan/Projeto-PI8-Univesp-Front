@@ -1,37 +1,89 @@
 @import "../../../../assets/colors";
 
 ::ng-deep .p-datatable.table {
+  /* Small devices (landscape phones, 576px and up) */
+  @media (max-width: 991px) {
+    margin-top: 40px !important;
+  }
 
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
     margin: 40px !important;
+  }
 
-    .p-datatable-thead > tr > th {
-        border: 5px solid $color-dark-blue !important;
-        background-color: $color-dark-blue;
-        color: $color-white;
-    }
+  padding-bottom: 50px;
+
+  .p-datatable-thead > tr > th {
+    border: 5px solid $color-dark-blue !important;
+    background-color: $color-dark-blue;
+    color: $color-white;
+  }
 }
 
 ::ng-deep .p-button.button {
-    border-radius: 20px;
-    margin: 10px;
-    color: $color-white;
+  border-radius: 20px;
+  margin: 10px;
+  color: $color-white;
 
-    &--edit {
-        background-color: $color-blue-black !important;
-        border-color: $color-blue-black !important;
-        background: linear-gradient(135deg, $color-blue-black 0%, $color-blue-black 100%);
-    }
+  &--edit {
+    background-color: $color-blue-black !important;
+    border-color: $color-blue-black !important;
+    background: linear-gradient(
+      135deg,
+      $color-blue-black 0%,
+      $color-blue-black 100%
+    );
+  }
 
-    &--trash {
-        background-color: $color-red !important;
-        border-color: $color-red !important;
-        background: linear-gradient(135deg, $color-red 0%, $color-red 100%);
-    }
+  &--trash {
+    background-color: $color-red !important;
+    border-color: $color-red !important;
+    background: linear-gradient(135deg, $color-red 0%, $color-red 100%);
+  }
 
-    &--qrcode {
-        background-color: $color-green !important;
-        border-color: $color-green !important;
-        background: linear-gradient(135deg, $color-green 0%, $color-green 100%);
-    }
+  &--qrcode {
+    background-color: $color-green !important;
+    border-color: $color-green !important;
+    background: linear-gradient(135deg, $color-green 0%, $color-green 100%);
+  }
 }
-  
+
+:host ::ng-deep {
+  .p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 40rem) {
+  :host ::ng-deep {
+    .p-datatable {
+      &.p-datatable-responsive-demo {
+        .p-datatable-thead > tr > th,
+        .p-datatable-tfoot > tr > td {
+          display: none !important;
+        }
+
+        .p-datatable-tbody > tr > td {
+          text-align: left;
+          display: block;
+          width: 100%;
+          float: left;
+          clear: left;
+          border: 0 none;
+
+          .p-column-title {
+            padding: 0.4rem;
+            min-width: 30%;
+            display: inline-block;
+            margin: -0.4em 1em -0.4em -0.4rem;
+            font-weight: bold;
+          }
+
+          &:last-child {
+            border-bottom: 1px solid var(--surface-d);
+          }
+        }
+      }
+    }
+  }
+}

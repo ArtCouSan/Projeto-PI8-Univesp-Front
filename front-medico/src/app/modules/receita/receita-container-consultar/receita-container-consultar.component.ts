@@ -34,7 +34,8 @@ export class ReceitaContainerConsultarComponent implements OnInit {
               hash: receita.hash,
               status: receita.status,
               dtInsercao: receita.dtInsercao,
-              cnpjFarmaceutico: receita.farmaceutico?.cnpjFarmacia ? receita.farmaceutico?.cnpjFarmacia : '-'
+              cnpjFarmaceutico: receita.farmaceutico?.cnpjFarmacia ? receita.farmaceutico?.cnpjFarmacia : '-',
+              nomePaciente: receita.paciente.nome
             })
           });
         }
@@ -50,8 +51,8 @@ export class ReceitaContainerConsultarComponent implements OnInit {
             hash: receita.hash,
             status: receita.status,
             dtInsercao: receita.dtInsercao,
-            cnpjFarmaceutico: receita.farmaceutico?.cnpjFarmacia ? receita.farmaceutico?.cnpjFarmacia : '-'
-
+            cnpjFarmaceutico: receita.farmaceutico?.cnpjFarmacia ? receita.farmaceutico?.cnpjFarmacia : '-',
+            nomePaciente: receita.paciente.nome
           })
         });
       }
@@ -62,9 +63,9 @@ export class ReceitaContainerConsultarComponent implements OnInit {
 
   public cols = [
     { field: 'dtInsercao', header: 'Data Insercão', isDate: true, isDoc: false },
-    { field: 'crfFarmaceutico', header: 'CRF do Farmaceutico', isDate: false, isDoc: false },
     { field: 'crmMedico', header: 'CRM do Médico', isDate: false, isDoc: false },
     { field: 'cpfPaciente', header: 'CPF do Paciente', isDate: false, isDoc: true },
+    { field: 'nomePaciente', header: 'Nome do Paciente', isDate: false, isDoc: false },
     { field: 'status', header: 'Status', isDate: false, isDoc: false }
   ];
 

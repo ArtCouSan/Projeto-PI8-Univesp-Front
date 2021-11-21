@@ -1,7 +1,20 @@
 @import "../../../../assets/colors";
 
+.card {
+}
+
 ::ng-deep .p-datatable.table {
-  margin: 0px 40px !important;
+
+  padding-bottom: 50px;
+
+  @media (max-width: 991px) {
+    margin-top: 10px !important;
+  }
+
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    margin: 0px 40px !important;
+  }
 
   .p-datatable-thead > tr > th {
     border: 5px solid $color-dark-blue !important;
@@ -18,7 +31,11 @@
   &--edit {
     background-color: $color-blue-black !important;
     border-color: $color-blue-black !important;
-    background: linear-gradient(135deg, $color-blue-black 0%, $color-blue-black 100%);
+    background: linear-gradient(
+      135deg,
+      $color-blue-black 0%,
+      $color-blue-black 100%
+    );
   }
 
   &--bookmark {

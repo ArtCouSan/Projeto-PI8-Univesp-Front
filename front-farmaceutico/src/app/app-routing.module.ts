@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGaurd } from './core/guards/auth.guards';
 
 const routes: Routes = [
   {
@@ -12,7 +13,8 @@ const routes: Routes = [
   },
   {
     path: 'receita',
-    loadChildren: () => import('./modules/receita/receita.module').then(m => m.ReceitaModule)
+    loadChildren: () => import('./modules/receita/receita.module').then(m => m.ReceitaModule),
+    canActivate: [AuthGaurd]
   }
 ];
 
